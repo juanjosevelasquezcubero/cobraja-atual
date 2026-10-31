@@ -11,13 +11,9 @@
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as LoginRouteImport } from './routes/login'
-import { Route as PerfilRouteImport } from './routes/perfil'
-import { Route as AvistaIndexRouteImport } from './routes/avista/index'
-import { Route as ClientesIndexRouteImport } from './routes/clientes/index'
-import { Route as ClientesIdRouteImport } from './routes/clientes/$id'
-import { Route as ClientesNovoRouteImport } from './routes/clientes/novo'
-import { Route as CobrancasIndexRouteImport } from './routes/cobrancas/index'
-import { Route as VendasNovaRouteImport } from './routes/vendas/nova'
+import { Route as PrivacidadeRouteImport } from './routes/privacidade'
+import { Route as RedefinirRouteImport } from './routes/redefinir'
+import { Route as VerificarRouteImport } from './routes/verificar'
 import { Route as ApiAuthSplatRouteImport } from './routes/api/auth/$'
 
 const IndexRoute = IndexRouteImport.update({
@@ -30,39 +26,19 @@ const LoginRoute = LoginRouteImport.update({
   path: '/login',
   getParentRoute: () => rootRouteImport,
 } as any)
-const PerfilRoute = PerfilRouteImport.update({
-  id: '/perfil',
-  path: '/perfil',
+const PrivacidadeRoute = PrivacidadeRouteImport.update({
+  id: '/privacidade',
+  path: '/privacidade',
   getParentRoute: () => rootRouteImport,
 } as any)
-const AvistaIndexRoute = AvistaIndexRouteImport.update({
-  id: '/avista/',
-  path: '/avista/',
+const RedefinirRoute = RedefinirRouteImport.update({
+  id: '/redefinir',
+  path: '/redefinir',
   getParentRoute: () => rootRouteImport,
 } as any)
-const ClientesIndexRoute = ClientesIndexRouteImport.update({
-  id: '/clientes/',
-  path: '/clientes/',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const ClientesIdRoute = ClientesIdRouteImport.update({
-  id: '/clientes/$id',
-  path: '/clientes/$id',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const ClientesNovoRoute = ClientesNovoRouteImport.update({
-  id: '/clientes/novo',
-  path: '/clientes/novo',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const CobrancasIndexRoute = CobrancasIndexRouteImport.update({
-  id: '/cobrancas/',
-  path: '/cobrancas/',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const VendasNovaRoute = VendasNovaRouteImport.update({
-  id: '/vendas/nova',
-  path: '/vendas/nova',
+const VerificarRoute = VerificarRouteImport.update({
+  id: '/verificar',
+  path: '/verificar',
   getParentRoute: () => rootRouteImport,
 } as any)
 const ApiAuthSplatRoute = ApiAuthSplatRouteImport.update({
@@ -74,38 +50,26 @@ const ApiAuthSplatRoute = ApiAuthSplatRouteImport.update({
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/login': typeof LoginRoute
-  '/perfil': typeof PerfilRoute
-  '/clientes/$id': typeof ClientesIdRoute
-  '/clientes/novo': typeof ClientesNovoRoute
-  '/vendas/nova': typeof VendasNovaRoute
-  '/avista/': typeof AvistaIndexRoute
-  '/clientes/': typeof ClientesIndexRoute
-  '/cobrancas/': typeof CobrancasIndexRoute
+  '/privacidade': typeof PrivacidadeRoute
+  '/redefinir': typeof RedefinirRoute
+  '/verificar': typeof VerificarRoute
   '/api/auth/$': typeof ApiAuthSplatRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/login': typeof LoginRoute
-  '/perfil': typeof PerfilRoute
-  '/clientes/$id': typeof ClientesIdRoute
-  '/clientes/novo': typeof ClientesNovoRoute
-  '/vendas/nova': typeof VendasNovaRoute
-  '/avista': typeof AvistaIndexRoute
-  '/clientes': typeof ClientesIndexRoute
-  '/cobrancas': typeof CobrancasIndexRoute
+  '/privacidade': typeof PrivacidadeRoute
+  '/redefinir': typeof RedefinirRoute
+  '/verificar': typeof VerificarRoute
   '/api/auth/$': typeof ApiAuthSplatRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/login': typeof LoginRoute
-  '/perfil': typeof PerfilRoute
-  '/clientes/$id': typeof ClientesIdRoute
-  '/clientes/novo': typeof ClientesNovoRoute
-  '/vendas/nova': typeof VendasNovaRoute
-  '/avista/': typeof AvistaIndexRoute
-  '/clientes/': typeof ClientesIndexRoute
-  '/cobrancas/': typeof CobrancasIndexRoute
+  '/privacidade': typeof PrivacidadeRoute
+  '/redefinir': typeof RedefinirRoute
+  '/verificar': typeof VerificarRoute
   '/api/auth/$': typeof ApiAuthSplatRoute
 }
 export interface FileRouteTypes {
@@ -113,50 +77,34 @@ export interface FileRouteTypes {
   fullPaths:
     | '/'
     | '/login'
-    | '/perfil'
-    | '/clientes/$id'
-    | '/clientes/novo'
-    | '/vendas/nova'
-    | '/avista/'
-    | '/clientes/'
-    | '/cobrancas/'
+    | '/privacidade'
+    | '/redefinir'
+    | '/verificar'
     | '/api/auth/$'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
     | '/login'
-    | '/perfil'
-    | '/clientes/$id'
-    | '/clientes/novo'
-    | '/vendas/nova'
-    | '/avista'
-    | '/clientes'
-    | '/cobrancas'
+    | '/privacidade'
+    | '/redefinir'
+    | '/verificar'
     | '/api/auth/$'
   id:
     | '__root__'
     | '/'
     | '/login'
-    | '/perfil'
-    | '/clientes/$id'
-    | '/clientes/novo'
-    | '/vendas/nova'
-    | '/avista/'
-    | '/clientes/'
-    | '/cobrancas/'
+    | '/privacidade'
+    | '/redefinir'
+    | '/verificar'
     | '/api/auth/$'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   LoginRoute: typeof LoginRoute
-  PerfilRoute: typeof PerfilRoute
-  ClientesIdRoute: typeof ClientesIdRoute
-  ClientesNovoRoute: typeof ClientesNovoRoute
-  VendasNovaRoute: typeof VendasNovaRoute
-  AvistaIndexRoute: typeof AvistaIndexRoute
-  ClientesIndexRoute: typeof ClientesIndexRoute
-  CobrancasIndexRoute: typeof CobrancasIndexRoute
+  PrivacidadeRoute: typeof PrivacidadeRoute
+  RedefinirRoute: typeof RedefinirRoute
+  VerificarRoute: typeof VerificarRoute
   ApiAuthSplatRoute: typeof ApiAuthSplatRoute
 }
 
@@ -176,53 +124,25 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof LoginRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/perfil': {
-      id: '/perfil'
-      path: '/perfil'
-      fullPath: '/perfil'
-      preLoaderRoute: typeof PerfilRouteImport
+    '/privacidade': {
+      id: '/privacidade'
+      path: '/privacidade'
+      fullPath: '/privacidade'
+      preLoaderRoute: typeof PrivacidadeRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/avista/': {
-      id: '/avista/'
-      path: '/avista'
-      fullPath: '/avista/'
-      preLoaderRoute: typeof AvistaIndexRouteImport
+    '/redefinir': {
+      id: '/redefinir'
+      path: '/redefinir'
+      fullPath: '/redefinir'
+      preLoaderRoute: typeof RedefinirRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/clientes/': {
-      id: '/clientes/'
-      path: '/clientes'
-      fullPath: '/clientes/'
-      preLoaderRoute: typeof ClientesIndexRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/clientes/$id': {
-      id: '/clientes/$id'
-      path: '/clientes/$id'
-      fullPath: '/clientes/$id'
-      preLoaderRoute: typeof ClientesIdRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/clientes/novo': {
-      id: '/clientes/novo'
-      path: '/clientes/novo'
-      fullPath: '/clientes/novo'
-      preLoaderRoute: typeof ClientesNovoRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/cobrancas/': {
-      id: '/cobrancas/'
-      path: '/cobrancas'
-      fullPath: '/cobrancas/'
-      preLoaderRoute: typeof CobrancasIndexRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/vendas/nova': {
-      id: '/vendas/nova'
-      path: '/vendas/nova'
-      fullPath: '/vendas/nova'
-      preLoaderRoute: typeof VendasNovaRouteImport
+    '/verificar': {
+      id: '/verificar'
+      path: '/verificar'
+      fullPath: '/verificar'
+      preLoaderRoute: typeof VerificarRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/api/auth/$': {
@@ -238,13 +158,9 @@ declare module '@tanstack/react-router' {
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   LoginRoute: LoginRoute,
-  PerfilRoute: PerfilRoute,
-  ClientesIdRoute: ClientesIdRoute,
-  ClientesNovoRoute: ClientesNovoRoute,
-  VendasNovaRoute: VendasNovaRoute,
-  AvistaIndexRoute: AvistaIndexRoute,
-  ClientesIndexRoute: ClientesIndexRoute,
-  CobrancasIndexRoute: CobrancasIndexRoute,
+  PrivacidadeRoute: PrivacidadeRoute,
+  RedefinirRoute: RedefinirRoute,
+  VerificarRoute: VerificarRoute,
   ApiAuthSplatRoute: ApiAuthSplatRoute,
 }
 export const routeTree = rootRouteImport

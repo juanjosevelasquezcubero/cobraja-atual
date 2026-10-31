@@ -37,6 +37,7 @@ import { randomBytes } from "node:crypto";
 import { Pool } from "pg";
 import { ensureDbReady, getPglite } from "../db";
 import { emailAndPasswordEnabled } from "./email-password";
+import { emailAndPasswordOptions, emailVerificationOptions, rateLimitOptions, userOptions } from "./password-reset.server";
 import { GATE_PROVIDER_ID, gateIdentitySessions } from "./gate-session.server";
 import { GROK_PROVIDERS } from "./providers";
 import { pgliteDialect } from "./pglite-dialect";
@@ -211,7 +212,16 @@ export const auth = betterAuth({
   session: { cookieCache: { enabled: true, maxAge: 300 } },
 
   // Local email/password — toggled only via `./email-password` (not a plugin).
-  ...(emailAndPasswordEnabled ? { emailAndPassword: { enabled: true } } : {}),
+  // With RESEND_API_KEY, sign-up must confirm the e-mail before a session exists.
+  ...(emailAndPasswordEnabled
+    ? {
+        emailAndPassword: emailAndPasswordOptions,
+        emailVerification: emailVerificationOptions,
+        user: userOptions,
+      }
+    : {}),
+
+  rateLimit: rateLimitOptions,
 
   // `__Host-` prefixed cookies: the browser REFUSES any same-named cookie that
   // carries a `Domain` attribute, so a sibling `*.grok.me` app cannot "toss" a

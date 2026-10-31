@@ -2,34 +2,15 @@
 
 @theme {
   --font-sans: "Outfit", ui-sans-serif, system-ui, sans-serif;
-  --font-display: "Fraunces", "Iowan Old Style", Georgia, serif;
-
-  --color-bg: #fff1e6;
-  --color-surface: #fffdfb;
-  --color-surface-2: #ffe4d0;
-  --color-fg: #1a1220;
-  --color-muted: #6d5c68;
-  --color-subtle: #a08b96;
-  --color-primary: #00a36a;
-  --color-primary-fg: #f3fff8;
-  --color-primary-soft: #c8f6df;
-  --color-border: #f3d4bf;
-  --color-danger: #e11d48;
-  --color-danger-soft: #ffe4ea;
-  --color-warn: #ea580c;
-  --color-warn-soft: #ffedd5;
-  --color-success: #059669;
-  --color-success-soft: #d1fae5;
-  --color-cash: #ff5a1f;
-  --color-cash-fg: #fff8f4;
-  --color-cash-soft: #ffe1d2;
-  --color-desk: #10261d;
-
-  --radius-sm: 0.5rem;
-  --radius-md: 0.75rem;
-  --radius-lg: 1.125rem;
-  --radius-xl: 1.5rem;
-  --radius-2xl: 1.75rem;
+  --color-bg: #ffffff;
+  --color-desk: #fff8f3;
+  --color-ink: #1c1410;
+  --color-muted: #6b5e58;
+  --color-primary: #ff6b00;
+  --color-primary-fg: #ffffff;
+  --color-soft: #fff1e6;
+  --color-line: #ffd7bf;
+  --color-danger: #c2410c;
 }
 
 @layer base {
@@ -37,73 +18,23 @@
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
   }
-
-  html,
-  body,
-  #app {
-    min-height: 100%;
-  }
-
   body {
-    margin: 0;
-    background: var(--color-desk);
-    color: var(--color-fg);
     font-family: var(--font-sans);
+    background: var(--color-desk);
+    color: var(--color-ink);
   }
-
-  h1, h2, h3 {
-    text-wrap: balance;
-  }
-
-  p {
-    text-wrap: pretty;
-  }
-
   button:not(:disabled),
   [role="button"]:not(:disabled) {
     cursor: pointer;
   }
-
-  input, textarea, select {
-    font: inherit;
+  h1, h2 {
+    text-wrap: balance;
   }
 }
 
 @media (prefers-reduced-motion: reduce) {
-  *,
-  *::before,
-  *::after {
-    animation-duration: 0.01ms !important;
-    animation-iteration-count: 1 !important;
-    transition-duration: 0.01ms !important;
-  }
-}
-
-.phone-frame {
-  min-height: 100svh;
-  width: 100%;
-  max-width: 430px;
-  margin: 0 auto;
-  background: var(--color-bg);
-  color: var(--color-fg);
-  display: flex;
-  flex-direction: column;
-  position: relative;
-}
-
-@media (min-width: 640px) {
-  body {
-    background: var(--color-desk);
-  }
-
-  .phone-frame {
-    min-height: calc(100svh - 48px);
-    margin-top: 24px;
-    margin-bottom: 24px;
-    border-radius: 2rem;
-    overflow: hidden;
-    box-shadow:
-      0 0 0 1px color-mix(in oklab, white 8%, transparent),
-      0 28px 60px -24px rgb(0 0 0 / 0.55);
+  * {
+    transition: none !important;
+    animation: none !important;
   }
 }
